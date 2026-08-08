@@ -30,7 +30,7 @@ The scanner recognizes common block and flow forms for triggers, permissions, ru
 
 ## Usage
 
-Pin the Action itself to a reviewed full commit SHA:
+For a quick evaluation, use the maintained `v1` release line:
 
 ```yaml
 name: Authority discovery
@@ -48,10 +48,13 @@ jobs:
     steps:
       - uses: actions/checkout@<full-commit-sha>
       - id: authority-map
-        uses: emiliaprotocol/github-authority-map@<full-commit-sha>
+        uses: emiliaprotocol/github-authority-map@v1
         with:
           fail-on: critical
 ```
+
+For production, replace `v1` with the reviewed full commit SHA. The moving
+major tag is convenient for evaluation; it is not an immutable dependency pin.
 
 By default, the Action writes `emilia-authority-map.json` and `emilia-authority-map.md` to `RUNNER_TEMP`, appends the Markdown report to the job summary, and exposes these outputs:
 
