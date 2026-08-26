@@ -6,9 +6,14 @@ EMILIA Authority Map is a zero-dependency Node 24 GitHub Action that statically 
 
 Our first run against the EMILIA Protocol repository surfaced five critical
 static review paths whose mutation jobs had no environment: three Python
-publishers, a reusable PyPI publisher, and Dependabot's merge job. We moved the
-protection to the exact mutation jobs and reran the scanner to zero critical
-findings. That result identified control placement; it did not prove an exploit.
+publishers, a reusable PyPI publisher, and Dependabot's merge job. The exact-job
+protection was corrected in
+[emilia-protocol #539](https://github.com/emiliaprotocol/emilia-protocol/pull/539).
+A later source-pinned
+[Authority Map run](https://github.com/emiliaprotocol/emilia-protocol/actions/runs/32958357965)
+reported 52 workflows and zero critical findings. These results identify control
+placement; they do not prove an exploit, complete mediation, or the absence of
+runtime bypass paths.
 
 It emits JSON and Markdown covering:
 
